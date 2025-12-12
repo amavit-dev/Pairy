@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pairy - Au Pair Community Platform - Connect with fellow au pairs, share recipes, find jobs, and organize group hangouts">
+  <title>Pairy - Welcome</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <!-- Header -->
+      <div class="auth-header">
+        <img
+src="./images/logo.png"
+alt="Pairy Logo"
+class="auth-logo-img"
+>
+        <h1 class="auth-title">Pairy</h1>
+        <p class="auth-subtitle">Your community for sharing, connecting, and growing together</p>
+      </div>
+
+      <!-- Alert Message -->
+      <div id="auth-alert" class="auth-alert"></div>
+
+      <!-- Tab Navigation -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-form="user-login">User Login</button>
+        <button class="auth-tab" data-form="admin-login">Admin Login</button>
+        <button class="auth-tab" data-form="register">Register</button>
+      </div>
+
+      <!-- User Login Form -->
+      <form id="user-login-form" class="auth-form active">
+        <div class="form-group">
+          <label for="user-email" class="form-label">Email Address</label>
+          <input 
+            type="email" 
+            id="user-email" 
+            class="form-input" 
+            placeholder="Enter your email"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="user-password" class="form-label">Password</label>
+          <div class="password-wrapper">
+            <input 
+              type="password" 
+              id="user-password" 
+              class="form-input" 
+              placeholder="Enter your password"
+              required
+              autocomplete="current-password"
+            >
+            <button
+type="button"
+class="password-toggle"
+aria-label="Toggle password visibility"
+>👁️</button>
+          </div>
+        </div>
+
+        <div class="auth-options">
+          <div class="remember-me">
+            <input
+type="checkbox"
+id="user-remember"
+name="remember"
+>
+            <label for="user-remember">Remember me</label>
+          </div>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit">Sign In</button>
+
+        <div class="auth-footer">
+          <p>Don't have an account? <a
+href="#"
+class="auth-tab"
+data-form="register"
+>Create one now</a></p>
+        </div>
+      </form>
+
+      <!-- Admin Login Form -->
+      <form id="admin-login-form" class="auth-form">
+        <div class="form-group">
+          <label for="admin-email" class="form-label">
+            Admin Email Address
+            <span class="role-badge admin">Admin</span>
+          </label>
+          <input 
+            type="email" 
+            id="admin-email" 
+            class="form-input" 
+            placeholder="Enter admin email"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="admin-password" class="form-label">Admin Password</label>
+          <div class="password-wrapper">
+            <input 
+              type="password" 
+              id="admin-password" 
+              class="form-input" 
+              placeholder="Enter admin password"
+              required
+              autocomplete="current-password"
+            >
+            <button
+type="button"
+class="password-toggle"
+aria-label="Toggle password visibility"
+>👁️</button>
+          </div>
+        </div>
+
+        <div class="auth-options">
+          <div class="remember-me">
+            <input
+type="checkbox"
+id="admin-remember"
+name="remember"
+>
+            <label for="admin-remember">Remember me</label>
+          </div>
+        </div>
+
+        <button type="submit" class="auth-submit">Admin Sign In</button>
+
+        <div class="auth-footer">
+          <p class="text-muted" style="font-size: 0.75rem;">
+            Default admin credentials:<br>
+            Email: admin@aupair.com<br>
+            Password: admin123
+          </p>
+        </div>
+      </form>
+
+      <!-- Registration Form -->
+      <form id="register-form" class="auth-form">
+        <div class="form-group">
+          <label for="register-name" class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            id="register-name" 
+            class="form-input" 
+            placeholder="Enter your full name"
+            required
+            autocomplete="name"
+            minlength="2"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="register-username" class="form-label">Username</label>
+          <input 
+            type="text" 
+            id="register-username" 
+            class="form-input" 
+            placeholder="Choose a unique username"
+            required
+            autocomplete="username"
+            minlength="3"
+            maxlength="20"
+            pattern="[a-zA-Z0-9_]{3,20}"
+          >
+          <div id="username-feedback" class="username-feedback"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="register-email" class="form-label">Email Address</label>
+          <input 
+            type="email" 
+            id="register-email" 
+            class="form-input" 
+            placeholder="Enter your email"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="register-country" class="form-label">Country</label>
+          <input 
+            type="text" 
+            id="register-country" 
+            class="form-input" 
+            placeholder="Enter your country"
+            required
+            autocomplete="country-name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="register-password" class="form-label">Password</label>
+          <div class="password-wrapper">
+            <input 
+              type="password" 
+              id="register-password" 
+              class="form-input" 
+              placeholder="Create a password (min. 6 characters)"
+              required
+              autocomplete="new-password"
+              minlength="6"
+            >
+            <button
+type="button"
+class="password-toggle"
+aria-label="Toggle password visibility"
+>👁️</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="register-confirm-password" class="form-label">Confirm Password</label>
+          <div class="password-wrapper">
+            <input 
+              type="password" 
+              id="register-confirm-password" 
+              class="form-input" 
+              placeholder="Confirm your password"
+              required
+              autocomplete="new-password"
+              minlength="6"
+            >
+            <button
+type="button"
+class="password-toggle"
+aria-label="Toggle password visibility"
+>👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" class="auth-submit">Create Account</button>
+
+        <div class="auth-footer">
+          <p>Already have an account? <a
+href="#"
+class="auth-tab"
+data-form="user-login"
+>Sign in here</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/storage.js"></script>
+  <script src="./js/auth.js"></script>
+</body>
+</html>
